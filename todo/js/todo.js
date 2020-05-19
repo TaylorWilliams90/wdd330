@@ -1,6 +1,47 @@
+const todolists =  ["This is a test", "This will work"]; 
+
+window.addEventListener("load", () => {
+    showlist();
+  });
 
 
 function add() {
     let todo = document.getElementById("todo").value;
-    
+    console.log(todo);
+    todolists.push(todo);
+   showlist();
+
+   document.getElementById("todo").value = "";
+
 }
+
+function showlist() {
+    const todoElement = document.getElementById("results");
+    todoElement.innerHTML = "";
+    renderList(todolists, todoElement);
+}
+
+function renderList(todolist, parent){
+todolist.forEach(list => {
+    parent.appendChild(showOneList(list));
+});
+}
+
+function showOneList(list) {
+    const item = document.createElement("li");
+    let num = 0
+    item.innerHTML = `<div class="list">
+                        ${list}
+                        
+                        </div>
+                        <button class="cross" id="${num}" onclick="deleteList">X</button>`;
+                    num++;
+    return item;
+
+}
+
+
+function deleteList(){
+    console.log(document.getElementById(this.value));
+}
+

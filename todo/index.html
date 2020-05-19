@@ -8,7 +8,7 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="cs/style.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -18,12 +18,16 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="todo" name="todo" >
-            <button class="btn btn-outline-secondary" id="submit" onclick="add()">Add to List</button>
-        </div>
-        <div class="list" id="results">
 
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" id="todo" name="todo" >
+        </div>
+            <button class="btn btn-primary mb-2" id="submit" onclick="add()">+</button>
+
+        <div class="list">
+            <ul id="results">
+                
+            </ul>
         </div>
     </div>
 
