@@ -1,0 +1,2 @@
+
+import './controler/HikesController.js';
