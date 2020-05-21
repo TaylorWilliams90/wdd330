@@ -1,4 +1,7 @@
-const todolists =  ["This is a test", "This will work"]; 
+const todolists = {
+    id: "1",
+    task: "work hard",
+} 
 
 window.addEventListener("load", () => {
     showlist();
@@ -29,19 +32,22 @@ todolist.forEach(list => {
 
 function showOneList(list) {
     const item = document.createElement("li");
-    let num = 0
+    
     item.innerHTML = `<div class="list">
                         ${list}
                         
                         </div>
-                        <button class="cross" id="${num}" onclick="deleteList">X</button>`;
-                    num++;
+                        <button class="cross">X</button>`;
     return item;
 
 }
 
 
-function deleteList(){
-    console.log(document.getElementById(this.value));
+function deleteList(del){
+    
+    console.log(del);
+
+    todolists.splice(del);
+
 }
 
