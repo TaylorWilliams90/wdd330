@@ -8,10 +8,11 @@ window.addEventListener("load", () => {
 function add() {
     let todo = document.getElementById("todo").value;
     console.log(todo);
-    todolists.push(todo);
-   showlist();
+        
+        todolists.push(todo);
+        showlist();
 
-   document.getElementById("todo").value = "";
+        document.getElementById("todo").value = "";
 
 }
 
@@ -31,17 +32,21 @@ function showOneList(list) {
     const item = document.createElement("li");
     let num = 0
     item.innerHTML = `<div class="list">
+                        <button class="done" onclick="complete()">DONE</button>
+                        <div class="task">
                         ${list}
-                        
                         </div>
-                        <button class="cross" id="${num}" onclick="deleteList">X</button>`;
-                    num++;
+                        
+                        <button class="cross" onclick="deleteList()">X</button>
+                        </div>`;
     return item;
 
 }
 
 
 function deleteList(){
-    console.log(document.getElementById(this.value));
+    let item = document.querySelector(".cross");
+
+    console.log(item);
 }
 
