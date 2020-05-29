@@ -1,53 +1,51 @@
-const todolists = {
-    id: "1",
-    task: "work hard",
-} 
+const todoInput = document.querySelector('#todo-input');
+const todoButton = document.querySelector('#todo-button');
+const todoList = document.querySelector('#results');
 
-window.addEventListener("load", () => {
-    showlist();
-  });
+//Event listeners
 
+todoButton.addEventListener('click', add);
+todoList.addEventListener('click', deleteCheck)
 
-function add() {
-    let todo = document.getElementById("todo").value;
-    console.log(todo);
-        
-        todolists.push(todo);
-        showlist();
+function add(event) {
+     
 
-        document.getElementById("todo").value = "";
-
+    //todo div
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('list');
+    // li
+    const newtodo = document.createElement('li');
+    newtodo.innerText = todoInput.value;
+    newtodo.classList.add("task");
+    todoDiv.appendChild(newtodo);
+    // mark button
+    const completeButton = document.createElement('button');
+    completeButton.innerText = 'Done';
+    completeButton.classList = "done";
+    todoDiv.appendChild(completeButton);
+    // mark button
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = 'X';
+    deleteButton.classList = "cross";
+    todoDiv.appendChild(deleteButton);
+    //results
+    todoList.appendChild(todoDiv);
+    //clear
+    todoInput.value = '';
 }
 
-function showlist() {
-    const todoElement = document.getElementById("results");
-    todoElement.innerHTML = "";
-    renderList(todolists, todoElement);
+function deleteCheck(e){
+ const item = e.target;
+// delete
+
+if (item.classList[0] === "cross"){
+    const par = item.parentElement;
+    par.remove();
 }
 
-function renderList(todolist, parent){
-todolist.forEach(list => {
-    parent.appendChild(showOneList(list));
-});
+if (item.classList[0] === "done"){
+    const par = item.parentElement;
+    par.classList.add("complete");
 }
 
-function showOneList(list) {
-    const item = document.createElement("li");
-    
-    item.innerHTML = `<div class="list">
-                        <button class="done" onclick="complete()">DONE</button>
-                        <div class="task">
-                        ${list}
-                        </div>
-                        <button class="cross">X</button>`;
-    return item;
-
 }
-
-
-function deleteList(){
-    let item = document.querySelector(".cross");
-
-    console.log(item);
-}
-
