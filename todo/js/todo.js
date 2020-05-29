@@ -11,10 +11,11 @@ window.addEventListener("load", () => {
 function add() {
     let todo = document.getElementById("todo").value;
     console.log(todo);
-    todolists.push(todo);
-   showlist();
+        
+        todolists.push(todo);
+        showlist();
 
-   document.getElementById("todo").value = "";
+        document.getElementById("todo").value = "";
 
 }
 
@@ -34,8 +35,9 @@ function showOneList(list) {
     const item = document.createElement("li");
     
     item.innerHTML = `<div class="list">
+                        <button class="done" onclick="complete()">DONE</button>
+                        <div class="task">
                         ${list}
-                        
                         </div>
                         <button class="cross">X</button>`;
     return item;
@@ -43,11 +45,9 @@ function showOneList(list) {
 }
 
 
-function deleteList(del){
-    
-    console.log(del);
+function deleteList(){
+    let item = document.querySelector(".cross");
 
-    todolists.splice(del);
-
+    console.log(item);
 }
 
