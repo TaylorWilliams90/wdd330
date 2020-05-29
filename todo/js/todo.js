@@ -1,7 +1,5 @@
-const todolists = {
-    id: "1",
-    task: "work hard",
-} 
+
+const todolists = [] 
 
 window.addEventListener("load", () => {
     showlist();
@@ -50,4 +48,5 @@ function deleteList(){
 
     console.log(item);
 }
+
 
