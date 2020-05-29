@@ -1,10 +1,6 @@
   // Hike View handler
   export default class HikesView {
-    constructor(listElementId) {
-        // will need this
-        this.imgBasePath = '//byui-cit.github.io/cit261/examples/';
-        
-    }
+    brand
   renderHikeList(hikeList, listElement) {
     hikes.forEach(hike => {
         parent.appendChild(renderOneHike(hike));
