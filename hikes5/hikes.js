@@ -1,6 +1,7 @@
-import comments from './comments.js';
+import Comments from './comments.js';
 
 // Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
+
 
 //create an array of hikes
 const hikeList = [
@@ -44,6 +45,7 @@ export default class Hikes {
   constructor(elementId) {
     this.parentElement = document.getElementById(elementId);
     // we need a back button to return back to the list. This will build it and hide it. When we need it we just need to remove the 'hidden' class
+    this.comments = new Comments('hikes', 'comments');
     this.backButton = this.buildBackButton();
   }
   // why is this function necessary?  hikeList is not exported, and so it cannot be seen outside of this module. I added this in case I ever need the list of hikes outside of the module. This also sets me up nicely if my data were to move. I can just change this method to the new source and everything will still work if I only access the data through this getter.
@@ -62,6 +64,7 @@ export default class Hikes {
     this.addHikeListener();
     // make sure the back button is hidden
     this.backButton.classList.add('hidden');
+    this.comments.showCommentList();
   }
   // show one hike with full details in the parentElement
   showOneHike(hikeName) {
@@ -70,6 +73,7 @@ export default class Hikes {
     this.parentElement.appendChild(renderOneHikeFull(hike));
     // show the back button
     this.backButton.classList.remove('hidden');
+    this.comments.showCommentList(hikeName);
   }
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {
@@ -147,11 +151,7 @@ function renderOneHikeFull(hike) {
         <div>
             <h3>How to get there</h3>
             <p>${hike.directions}</p>
-        </div>
-        <div>
-            <input type="text">
-            <button type="submit"></button>
-    
+        </div>    
     `;
   return item;
 }
