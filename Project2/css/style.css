@@ -1,3 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+}
+
 h1 {
     text-align: center;
 }
@@ -5,6 +15,35 @@ h1 {
 .bigWrapper{
     width: 600px;
     margin: auto;
-
 }
 
+.challangers {
+    width: 100%;
+}
+
+.newChallanger {
+    padding: 15px;
+    height: 100px;
+}
+
+.newChallanger img {
+    width: 80px;
+    float: left;
+}
+
+.chalName {
+    width: 200px;
+    padding: 20px 0;
+    float: left;
+}
+
+.chalSoical {
+    width: 200px;
+    padding: 20px 0;
+    float: left;
+}
+.stat {
+    width: 80px;
+    padding: 20px 0;
+    float: left;
+}
