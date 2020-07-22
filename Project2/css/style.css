@@ -12,6 +12,11 @@ h1 {
     text-align: center;
 }
 
+h1.status {
+    width: 33%;
+    float: left;
+}
+
 .bigWrapper{
     width: 600px;
     margin: auto;
@@ -23,12 +28,19 @@ h1 {
 
 .newChallanger {
     padding: 15px;
-    height: 100px;
+    width: 100%;
+    float: left;
 }
 
 .newChallanger img {
     width: 80px;
     float: left;
+}
+
+.container {
+    background-color: #b6b6b6;
+    width: 33%;
+    
 }
 
 .chalName {
@@ -46,4 +58,15 @@ h1 {
     width: 80px;
     padding: 20px 0;
     float: left;
+}
+
+
+.draggable {
+    padding: 1rem;
+    background-color: #fff;
+    cursor: move;
+}
+
+.draggable.dragging {
+    opacity: .5;
 }

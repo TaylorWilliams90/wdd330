@@ -3,18 +3,38 @@ const chalList = document.querySelector('.challangers')
 const inputName = document.querySelector('#name')
 const socialMedia = document.querySelector('#socialMedia')
 const stat = document.querySelector('.stat')
+const containers = document.querySelectorAll('.container')
+const drags = document.querySelectorAll('.draggable')
 
-submit.addEventListener("click", addChallenger, false)
+drags.forEach(drager => {
+    drager.addEventListener('dragstart', () => {
+        drager.classList.add('dragging')
+    })
+    drager.addEventListener('dragend', () => {
+        drager.classList.remove('dragging')
+    })
+})
 
-stat.addEventListener("click", changeStat, false)
+containers.forEach(container => {
+    container.addEventListener('dragover', e => {
+        e.preventDefault()
+        const drag = document.querySelector('.dragging')
+        container.appendChild(drag)
+    })
+})
+
+
+
+submit.addEventListener("click", addChallenger, false);
+
+
 
 function template(data) {
-    chalList.insertAdjacentHTML("beforeend",`
-        <div class="newChallanger">
+    chalList.insertAdjacentHTML("afterbegin",`
+        <div class="newChallanger draggable" draggable="true">
             <img src="${data.avatar}" alt="${data.name}">
             <div class="chalName">${data.name}</div>
             <div class="chalSoical">@${data.social}</div>
-            <div class="stat">${data.status}</div>
         </div>
     `)
 }
@@ -26,8 +46,7 @@ function addChallenger(event){
     const data = {
         avatar: "img/account.png",
         name: inputName.value,
-        social: socialMedia.value,
-        status: "Follow up"
+        social: socialMedia.value
     }
 
     event.preventDefault();

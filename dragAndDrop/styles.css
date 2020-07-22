@@ -3,7 +3,7 @@ body{
 }
 
 .container {
-    background-color: #333;
+    background-color: #b6b6b6;
     padding: 1rem;
     margin-top: 1rem;
 }
@@ -11,7 +11,6 @@ body{
 .draggable {
     padding: 1rem;
     background-color: #fff;
-    border: 1px solid rgb(64, 66, 66);
     cursor: move;
 }
 
