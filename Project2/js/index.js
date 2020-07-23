@@ -5,6 +5,9 @@ const socialMedia = document.querySelector('#socialMedia')
 const stat = document.querySelector('.stat')
 const containers = document.querySelectorAll('.container')
 const drags = document.querySelectorAll('.draggable')
+const start = document.querySelector('#start')
+
+
 
 drags.forEach(drager => {
     drager.addEventListener('dragstart', () => {
@@ -23,18 +26,17 @@ containers.forEach(container => {
     })
 })
 
-
-
 submit.addEventListener("click", addChallenger, false);
 
 
-
 function template(data) {
-    chalList.insertAdjacentHTML("afterbegin",`
-        <div class="newChallanger draggable" draggable="true">
-            <img src="${data.avatar}" alt="${data.name}">
-            <div class="chalName">${data.name}</div>
-            <div class="chalSoical">@${data.social}</div>
+    start.insertAdjacentHTML("afterbegin",`
+        <div class="draggable" draggable="true">
+            <div class="newChallanger">
+                <img src="${data.avatar}" alt="${data.name}">
+                <div class="chalName">${data.name}</div>
+                <div class="chalSoical">@${data.social}</div>
+            </div>
         </div>
     `)
 }
@@ -50,8 +52,6 @@ function addChallenger(event){
     }
 
     event.preventDefault();
-
-    // imput value < 1 exit
 
     //if (inputName.value.length < 1 || socialMedia.value.length > 1) return;
 

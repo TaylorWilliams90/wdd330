@@ -6,15 +6,23 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1;
+    background: #C33764;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {
     text-align: center;
+    color: #fff;
 }
 
 h1.status {
     width: 33%;
     float: left;
+}
+
+label {
+    color: #fff;
 }
 
 .bigWrapper{
@@ -23,23 +31,25 @@ h1.status {
 }
 
 .challangers {
-    width: 100%;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    background-color: #fff;
+    padding: 4px;
+    box-shadow: 2px 2px 11px;
 }
 
 .newChallanger {
-    padding: 15px;
     width: 100%;
-    float: left;
 }
 
 .newChallanger img {
-    width: 80px;
+    width: 50px;
     float: left;
 }
 
 .container {
-    background-color: #b6b6b6;
-    width: 33%;
+    font-size: 18px;
+    text-align: center
     
 }
 
